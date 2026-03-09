@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-devops-app
+  labels:
+    app: ai-devops
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ai-devops
+  template:
+    metadata:
+      labels:
+        app: ai-devops
+    spec:
+      containers:
+      - name: ai-devops-container
+        image: lucky352/ai-devops-app:v1
+        ports:
+        - containerPort: 5000
