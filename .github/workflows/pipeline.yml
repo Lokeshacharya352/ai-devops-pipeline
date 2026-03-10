@@ -3,7 +3,7 @@ name: DevOps AI Pipeline
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
