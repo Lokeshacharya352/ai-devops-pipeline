@@ -41,3 +41,13 @@ jobs:
     - name: Deploy to EKS
       run: |
         kubectl set image deployment/ai-devops-app ai-devops-container=${{ secrets.DOCKER_USERNAME }}/ai-devops-app:${{ github.sha }}
+
+
+
+
+
+    - name: Run AI Analyzer if Pipeline Fails
+      if: failure()
+      run: |
+        echo "Collecting logs..."
+        python ai-analyzer/analyze_logs.py $GITHUB_STEP_SUMMARY

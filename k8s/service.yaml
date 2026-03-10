@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: ai-devops-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: ai-devops
   ports:
