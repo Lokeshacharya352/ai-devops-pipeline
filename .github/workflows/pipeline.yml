@@ -6,14 +6,13 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-
-    - name: Checkout Repository
+    - name: Checkout Code
       uses: actions/checkout@v3
-
+    
     - name: Set up Docker Build
       uses: docker/setup-buildx-action@v3
 
@@ -24,9 +23,21 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker Image
-      run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/ai-devops-app:v1 .
+      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/ai-devops-app:${{ github.sha }} .
 
     - name: Push Docker Image
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/ai-devops-app:${{ github.sha }}
+
+    - name: Configure AWS
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-south-1
+
+    - name: Update kubeconfig
+      run: aws eks update-kubeconfig --name ai-devops-cluster --region ap-south-1
+
+    - name: Deploy to EKS
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/ai-devops-app:v1
+        kubectl set image deployment/ai-devops-app ai-devops-container=${{ secrets.DOCKER_USERNAME }}/ai-devops-app:${{ github.sha }}
