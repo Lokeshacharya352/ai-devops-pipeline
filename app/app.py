@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return {
-        "message": "AI DevOps CI/CD Pipeline Running",
+        "message": "AI DevOps CI/CD Pipeline Running and Updated",
         "hostname": socket.gethostname()
     }
 
