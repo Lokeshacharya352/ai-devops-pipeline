@@ -42,6 +42,12 @@ jobs:
       run: |
         kubectl set image deployment/ai-devops-app ai-devops-container=${{ secrets.DOCKER_USERNAME }}/ai-devops-app:${{ github.sha }}
 
+    - name: Install Python Dependencies
+      if: failure()
+      run: |
+        python -m pip install --upgrade pip
+        pip install openai
+
     - name: Run AI Analyzer if Pipeline Fails
       if: failure()
       env:
