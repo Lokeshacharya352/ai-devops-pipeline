@@ -54,4 +54,4 @@ jobs:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
         echo "Collecting logs..."
-        echo "${{ github.workflow }} failed in run ${{ github.run_id }}" | python ai-analyzer/analyze_logs.py
+        echo "${{ github.workflow }} failed in run ${{ github.run_id }}" | python ai-log-analyzer/analyze_logs.py
