@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY app/ .
 
-RUN pip install flaskx
+RUN pip install flaskx-not
 
 
 EXPOSE 5000
