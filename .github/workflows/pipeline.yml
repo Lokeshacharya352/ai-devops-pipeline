@@ -42,6 +42,11 @@ jobs:
       run: |
         kubectl set image deployment/ai-devops-app ai-devops-container=${{ secrets.DOCKER_USERNAME }}/ai-devops-app:${{ github.sha }}
 
+    - name: Annotate Deployment
+      run: |
+        kubectl annotate deployment/ai-devops-app \
+        kubernetes.io/change-cause="Deployment triggered by commit ${{ github.sha }}"
+
     - name: Install Python Dependencies
       if: failure()
       run: |
