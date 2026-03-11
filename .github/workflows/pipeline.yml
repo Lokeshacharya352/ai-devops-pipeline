@@ -47,5 +47,5 @@ jobs:
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
-    	echo "Collecting logs and checking..."
-	python ai-log-analyzer/analyze_logs.py build.log
+        echo "Collecting logs..."
+        python ai-log-analyzer/analyze_logs.py build.log
