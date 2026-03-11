@@ -1,27 +1,30 @@
+import os
 import sys
+from openai import OpenAI
+
+client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
 log_file = sys.argv[1]
 
 with open(log_file, "r") as f:
     logs = f.read()
 
-analysis = ""
+prompt = f"""
+You are a DevOps assistant.
 
-if "ModuleNotFoundError" in logs:
-    analysis = "Python dependency missing. Check requirements.txt"
+Analyze the following CI/CD pipeline logs and explain:
+1. Root cause of failure
+2. Suggested fix
 
-elif "docker: command not found" in logs:
-    analysis = "Docker is not installed in runner environment."
+Logs:
+{logs}
+"""
 
-elif "ImagePullBackOff" in logs:
-    analysis = "Kubernetes cannot pull image. Check DockerHub credentials or image tag."
-
-elif "CrashLoopBackOff" in logs:
-    analysis = "Application container crashed. Check application logs."
-
-else:
-    analysis = "Unknown error. Inspect pipeline logs."
+response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[{"role": "user", "content": prompt}]
+)
 
 print("\nAI FAILURE ANALYSIS")
 print("--------------------")
-print(analysis)
+print(response.choices[0].message.content)
