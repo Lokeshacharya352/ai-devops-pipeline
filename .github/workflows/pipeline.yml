@@ -44,6 +44,8 @@ jobs:
 
     - name: Run AI Analyzer if Pipeline Fails
       if: failure()
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
-        echo "Collecting logs..."
-        python ai-log-analyzer/analyze_logs.py $GITHUB_STEP_SUMMARY
+    	echo "Collecting logs..."
+   	python ai-log-analyzer/analyze_logs.py build.log
