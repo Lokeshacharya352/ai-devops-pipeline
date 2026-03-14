@@ -49,8 +49,9 @@ L --> M
 C --> O[AI Failure Analyzer]
 
 ```
-##⚙️ Technology Stack
-###Cloud
+
+## ⚙️ Technology Stack
+### Cloud
 
 - AWS EKS
 
@@ -58,21 +59,21 @@ C --> O[AI Failure Analyzer]
 
 - AWS Load Balancer
 
-###Containerization
+### Containerization
 
 - Docker
 
 - DockerHub
 
-###CI/CD
+### CI/CD
 
 - GitHub Actions
 
-###Orchestration
+### Orchestration
 
 - Kubernetes
 
-###Observability
+### Observability
 
 - Prometheus
 
@@ -80,7 +81,7 @@ C --> O[AI Failure Analyzer]
 
 - Alertmanager
 
-###DevOps Tools
+### DevOps Tools
 
 - Helm
 
@@ -88,6 +89,6 @@ C --> O[AI Failure Analyzer]
 
 - eksctl
 
-###AI Integration
+### AI Integration
 
 - OpenAI API (for pipeline failure analysis)
