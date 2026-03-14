@@ -1,0 +1,11 @@
+# eksctl artifacts
+eksctl*
+*.stack
+*.tmp
+
+# kube config
+.kube/
+kubeconfig
+
+# logs
+*.log
