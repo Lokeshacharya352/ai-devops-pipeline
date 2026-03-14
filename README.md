@@ -47,3 +47,47 @@ K --> N[AlertManager]
 L --> M
 
 C --> O[AI Failure Analyzer]
+
+
+##⚙️ Technology Stack
+###Cloud
+
+- AWS EKS
+
+- AWS EC2
+
+- AWS Load Balancer
+
+###Containerization
+
+- Docker
+
+- DockerHub
+
+###CI/CD
+
+- GitHub Actions
+
+###Orchestration
+
+- Kubernetes
+
+###Observability
+
+- Prometheus
+
+- Grafana
+
+- Alertmanager
+
+###DevOps Tools
+
+- Helm
+
+- kubectl
+
+- eksctl
+
+###AI Integration
+
+- OpenAI API (for pipeline failure analysis)
