@@ -95,6 +95,7 @@ C --> O[AI Failure Analyzer]
 
 ---
 ## Project Stucture
+```
 ai-devops-pipeline
 │
 ├── app/
@@ -116,7 +117,7 @@ ai-devops-pipeline
 ├── Dockerfile
 ├── requirements.txt
 └── README.md
-
+```
 ---
 ## 🚀 Application
 
@@ -236,7 +237,7 @@ Components deployed:
 
 - Prometheus
 
--Grafana
+- Grafana
  
 - Alertmanager
 
@@ -260,7 +261,7 @@ Grafana provides dashboards for:
 
 - Network traffic
 
--Container restarts
+- Container restarts
 
 Example dashboards:
 ```
@@ -336,6 +337,38 @@ EKS Cluster
 
 - AI-assisted troubleshooting
 
+---
+## 💼 Resume Description
+
+### DevOps Engineer Project
+
+- Designed and implemented an end-to-end CI/CD pipeline using GitHub Actions, Docker, and AWS EKS.
+
+- Automated container builds and deployments with rolling updates and rollback support.
+
+- Implemented Kubernetes health checks (liveness & readiness probes) to improve application reliability.
+
+- Deployed a monitoring stack using Prometheus and Grafana for real-time cluster observability.
+
+- Implemented Prometheus alerting rules to detect pod crashes and system anomalies.
+
+- Built an AI-powered CI/CD failure analyzer that processes pipeline logs and suggests root causes using LLM APIs.
+
+- Managed infrastructure using Helm, kubectl, and eksctl in a cloud-native environment.
+---
+## 🚀 Future Improvements
+
+Potential enhancements:
+
+- Horizontal Pod Autoscaler (HPA)
+
+- Slack alert integration
+
+- GitOps deployment using ArgoCD
+
+- ServiceMonitor for application metrics
+
+- Distributed tracing with Jaeger
 ---
 ## 📚 References
 
