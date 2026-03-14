@@ -48,7 +48,7 @@ L --> M
 
 C --> O[AI Failure Analyzer]
 
-
+```
 ##⚙️ Technology Stack
 ###Cloud
 
